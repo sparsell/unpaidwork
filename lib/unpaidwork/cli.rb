@@ -3,15 +3,29 @@ module UnpaidWork
 
         def start
             intro
+            menu
+            user_input
             get_country_names
         end
 
         def intro
-            puts "loreum ipsum, lloreum ipsum, loreum ipsum, loreum ipsum, loreum ipsum, loreum ipsum, loreum ipsum, loreum ipsum, loreum ipsum, "
+            puts "The OECD collects and publishes data around gender roles (along with several other topics). The data in this CLI will show (in minutes per day) the amount of unpaid and paid work performed by males and females. "
+            puts ""
+        end
+
+        def menu
+            puts "What would you like to do?"
+            puts "'view' - see data by OECD country"
+            puts "'suggested reading' - learn more about it"
+            puts "'exit' - leave the program"
+        end
+
+        def user_input
+            input = gets.chomp
         end
 
         def get_country_names
-            
+
         end
 
     end

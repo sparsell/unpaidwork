@@ -3,4 +3,4 @@
 require 'bundler/setup'
 require './lib/unpaidwork'
 
-puts "hello"
+UnpaidWork::CLI.new.start

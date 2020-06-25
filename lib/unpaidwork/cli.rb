@@ -4,19 +4,24 @@ module UnpaidWork
         def start
             intro
             menu
-            user_input
+            unless user_input == "exit"
             get_country_names
+          
+            else
+              exit  
+            end
         end
 
         def intro
-            puts "The OECD collects and publishes data around gender roles (along with several other topics). The data in this CLI will show (in minutes per day) the amount of unpaid and paid work performed by males and females. "
+            puts "PLACE HOLDER TEXT *** The OECD collects and publishes data around gender roles (along with several other topics). The data in this CLI will show  the amount of unpaid and paid work performed by males and females, in minutes per day. "
+            puts ""
             puts ""
         end
 
         def menu
             puts "What would you like to do?"
             puts "'view' - see data by OECD country"
-            puts "'read' - a list of suggested ways to educate yourself"
+            
             puts "'exit' - leave the program"
         end
 
@@ -25,12 +30,13 @@ module UnpaidWork
         end
 
         def get_country_names
-            UnpaidWork::Country.get_countries
+            UnpaidWork::Country.list_countries(country_name)
         end
 
         def exit
             puts "Goodbye!"
         end
+
 
     end
 end        

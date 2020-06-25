@@ -13,9 +13,11 @@ class UnpaidWork::API
                 name = dataset[:structure][:dimensions][:observation][0][:values][i][:name]
             end
             i += 1
-            puts "#{name}"    
+            puts "#{name}" 
         end
+        
+     UnpaidWork::Country.list_countries(country_name)
     end
 end
 
-        
+     

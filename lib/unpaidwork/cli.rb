@@ -16,7 +16,7 @@ module UnpaidWork
         def menu
             puts "What would you like to do?"
             puts "'view' - see data by OECD country"
-            puts "'suggested reading' - learn more about it"
+            puts "'read' - a list of suggested ways to educate yourself"
             puts "'exit' - leave the program"
         end
 
@@ -25,7 +25,11 @@ module UnpaidWork
         end
 
         def get_country_names
+            UnpaidWork::Country.get_countries
+        end
 
+        def exit
+            puts "Goodbye!"
         end
 
     end

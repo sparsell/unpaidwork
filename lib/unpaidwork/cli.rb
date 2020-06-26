@@ -4,12 +4,12 @@ module UnpaidWork
         def start
             intro
             menu
-            unless user_input == "exit"
-            get_country_names
+            while user_input != "exit"
+                get_country_names
+                #validate(user_input)
           
-            else
-              exit  
             end
+            exit  
         end
 
         def intro
@@ -26,12 +26,24 @@ module UnpaidWork
         end
 
         def user_input
-            input = gets.chomp
+            input = gets.strip
         end
 
         def get_country_names
+            puts "To choose a country to view, type the corresponding number (1-34):"
             UnpaidWork::Country.all
+            puts ""
+            puts "Choose a country, or type 'exit' to quit:"
+            input = gets.strip.to_i
+            #binding.pry
         end
+
+        # def validate(user_input)
+        #     if user_input < 1 || user_input > 34
+        #         puts "Please enter a number from 1-34"
+        #         end
+        #     user_input
+        # end
 
         def exit
             puts "Goodbye!"

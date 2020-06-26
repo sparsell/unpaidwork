@@ -19,6 +19,10 @@ class UnpaidWork::Country
         end
     end
 
+    def self.get_country_data(country_data)
+
+    end
+
     def self.check_for_countries
         UnpaidWork::API.get_countries
     end   

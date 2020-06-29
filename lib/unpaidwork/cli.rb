@@ -54,3 +54,20 @@ module UnpaidWork
     end
 end        
     
+
+# def display_country_data(input)
+    # puts "OECD data for #{input}, in minutes per day:"
+    # puts "Unpaid work performed by:"
+    # puts "     Men: #{@unpaid_men}"
+    # puts "     Women:#{@unpaid_women}"
+    # puts ""
+    # puts "Paid work performed by:"
+    # puts "     Men: #{@paid_men}"
+    # puts "     Women:#{@paid_women}"
+    
+    
+    # puts "Total work performed by:"
+    # puts "     Men: #{@total_men}"
+    # puts "     Women:#{@total_women}"
+
+# end

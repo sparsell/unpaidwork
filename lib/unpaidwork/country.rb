@@ -1,5 +1,5 @@
 class UnpaidWork::Country
-    attr_accessor :name, :unpaid_men, :unpaid_women, :paid_men, :paid_women
+    attr_accessor :name, :unpaid_men, :unpaid_women, :paid_men, :paid_women, :total_men, :total_women
     @@all = []
 
     def initialize
@@ -8,11 +8,14 @@ class UnpaidWork::Country
         @unpaid_women = unpaid_women
         @paid_men = paid_men
         @paid_women = paid_women
+        @total_men = total_men
+        @total_women = total_women
         save
     end
 
     def self.get_countries(country_names)
-        country_names = country_names.collect do |name| "#{name[:name]}" 
+        #country_names = country_names.collect do |name| "#{name[:name]}" 
+        country_names = country_names.collect do |name| "#{name["name"]}"     
 	    end
         country_names.each_with_index do |(key, value), index|
 	    puts "#{index +1}. #{key}"

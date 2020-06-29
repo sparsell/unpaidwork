@@ -13,6 +13,7 @@ module UnpaidWork
         end
 
         def intro
+            puts ""
             puts "PLACE HOLDER TEXT *** The OECD collects and publishes data around gender roles (along with several other topics). The data in this CLI will show  the amount of unpaid and paid work performed by males and females, in minutes per day. "
             puts ""
             puts ""
@@ -30,10 +31,10 @@ module UnpaidWork
         end
 
         def get_country_names
-            puts "To choose a country to view, type the corresponding number (1-34):"
             UnpaidWork::Country.all
             puts ""
-            puts "Choose a country, or type 'exit' to quit:"
+            puts "Choose an OECD country by typing the corresponding number (1-34),"
+            puts "or type 'exit' to quit:"
             input = gets.strip.to_i
             #binding.pry
         end

@@ -4,12 +4,10 @@ module UnpaidWork
         def start
             intro
             menu
-            while user_input != "exit"
-                get_country_names
-                
-          
+            user_input
+            unless user_input != 'exit'    
+                get_country_names  
             end
-            exit  
         end
 
         def intro
@@ -36,18 +34,29 @@ module UnpaidWork
             puts "Choose an OECD country by typing the corresponding three letter abbreviation:"
             puts "AUS - Australia"
             puts "AUT - Australia"
+            puts "BEL - Belgium"
+            puts "CAN - Canada"
+            puts "CHL - "
+            puts "COL - "
+            puts "CZE - "
+            puts "DNK - Denmark"
+            puts "EST - Estonia"
+            puts "FIN - Finland"
+            puts "FRA - France"
+            puts "DEU - Germany"
+            puts "HUN - Hungary"
+            puts "ISL - "
+            puts "IRL - "
+
 
             puts "or type 'exit' to quit:"
             id = gets.strip
-            UnpaidWork::API.get_countries(id)
+            UnpaidWork::API.get_country(id)
         end
-
      
         def exit
             puts "Goodbye!"
         end
-
-
     end
 end        
     

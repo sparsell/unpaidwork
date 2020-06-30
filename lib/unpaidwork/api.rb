@@ -7,8 +7,10 @@ class UnpaidWork::API
         dataset = JSON.parse data
         country_names = dataset["structure"]["dimensions"]["observation"][0]["values"]
         country_data = dataset["dataSets"][0]["observations"]
+        binding.pry
         UnpaidWork::Country.get_countries(country_names)
         UnpaidWork::Country.get_country_data(country_data)
+
     end
 
     #or this? but don't want to call 2x...right?
@@ -61,10 +63,10 @@ end
 
     #country data examples:
 
-    #     men_unpaid_australia = dataset["dataSets"][0]["observations"]["0:0:0:0:0"][0]    
+    #     men_unpaid_australia = dataset["dataSets"][0]["observations"]  ["0:0:0:0:0"][0]    
     #     women_unpaid_australia = dataset["dataSets"][0]["observations"]["0:0:1:0:0"][0]
-    #     men_paid_australia = dataset["dataSets"][0]["observations"]["0:1:0:0:0"][0]
-    #     women_paid_australia = dataset["dataSets"][0]["observations"]["0:1:1:0:0"][0]
-    #     men_total_australia = dataset["dataSets"][0]["observations"]["0:2:0:0:0"][0]
-    #     women_total_australia = dataset["dataSets"][0]["observations"]["0:2:1:0:0"][0]
+    #     men_paid_australia = dataset["dataSets"][0]["observations"]    ["0:1:0:0:0"][0]
+    #     women_paid_australia = dataset["dataSets"][0]["observations"]  ["0:1:1:0:0"][0]
+    #     men_total_australia = dataset["dataSets"][0]["observations"]   ["0:2:0:0:0"][0]
+    #     women_total_australia = dataset["dataSets"][0]["observations"] ["0:2:1:0:0"][0]
 

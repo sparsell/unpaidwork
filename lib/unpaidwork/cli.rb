@@ -6,7 +6,7 @@ module UnpaidWork
             menu
             while user_input != "exit"
                 get_country_names
-                #validate(user_input)
+                
           
             end
             exit  
@@ -23,6 +23,7 @@ module UnpaidWork
             puts "What would you like to do?"
             puts ""
             puts "'view' - see data by OECD country"
+            puts "'read' - list of further resources, reading"
             puts "'exit' - leave the program"
         end
 
@@ -31,11 +32,14 @@ module UnpaidWork
         end
 
         def get_country_names
-            UnpaidWork::Country.all
             puts ""
-            puts "Choose an OECD country by typing the corresponding number (1-34),"
+            puts "Choose an OECD country by typing the corresponding three letter abbreviation:"
+            puts "AUS - Australia"
+            puts "AUT - Australia"
+
             puts "or type 'exit' to quit:"
-            input = gets.strip.to_i
+            id = gets.strip
+            UnpaidWork::API.get_countries(id)
         end
 
      

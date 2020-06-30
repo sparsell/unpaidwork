@@ -36,16 +36,9 @@ module UnpaidWork
             puts "Choose an OECD country by typing the corresponding number (1-34),"
             puts "or type 'exit' to quit:"
             input = gets.strip.to_i
-            #binding.pry
         end
 
-        # def validate(user_input)
-        #     if user_input < 1 || user_input > 34
-        #         puts "Please enter a number from 1-34"
-        #         end
-        #     user_input
-        # end
-
+     
         def exit
             puts "Goodbye!"
         end

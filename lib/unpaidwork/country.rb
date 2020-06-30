@@ -24,15 +24,14 @@ class UnpaidWork::Country
 
     # - ? - make each an array of values, in same order as country name array?
     
-    def self.get_country_data(country_data)
-        @unpaid_men = ## "if key begins with #{input + 1}, second number is "0" and third number is "0", return [0]
-        @unpaid_women = #"if key begins with #{input + 1}, second number is "0" and third number is "1", return [0]
-        @paid_men = #"if key begins with #{input + 1}, second number is "1" and third number is "0", return [0]
-        @paid_women = #"if key begins with #{input + 1}, second number is "1" and third number is "1", return [0]
-        @total_men = #"if key begins with #{input + 1}, second number is "2" and third number is "0", return [0]
-        @total_women = #"if key begins with #{input + 1}, second number is "2" and third number is "1", return [0] 
-
-    end
+    # def self.get_country_data(country_data)
+    #     @unpaid_men = ## "if key begins with #{input + 1}, second number is "0" and third number is "0", return [0]
+    #     @unpaid_women = #"if key begins with #{input + 1}, second number is "0" and third number is "1", return [0]
+    #     @paid_men = #"if key begins with #{input + 1}, second number is "1" and third number is "0", return [0]
+    #     @paid_women = #"if key begins with #{input + 1}, second number is "1" and third number is "1", return [0]
+    #     @total_men = #"if key begins with #{input + 1}, second number is "2" and third number is "0", return [0]
+    #     @total_women = #"if key begins with #{input + 1}, second number is "2" and third number is "1", return [0] 
+    # end
 
     def self.check_for_countries
         UnpaidWork::API.get_countries
@@ -47,7 +46,6 @@ class UnpaidWork::Country
         @@all << self    
     end
 
-    end
 end
 
 

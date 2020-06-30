@@ -14,7 +14,6 @@ class UnpaidWork::Country
     end
 
     def self.get_countries(country_names)
-        #country_names = country_names.collect do |name| "#{name[:name]}" 
         country_names = country_names.collect do |name| "#{name["name"]}"     
 	    end
         country_names.each_with_index do |(key, value), index|
@@ -22,16 +21,20 @@ class UnpaidWork::Country
         end
     end
 
-    def self.get_country_data(country_data)
+    def self.get_country_data(country_data) #create country based on index number? 
 
     end
 
-    def self.check_for_countries
+    def get_country_data(input) #iterate with input from user
+
+    end
+
+    def self.look_for_countries
         UnpaidWork::API.get_countries
     end   
 
     def self.all
-        check_for_countries if @@all == []
+        look_for_countries if @@all == []
         @@all
     end
 

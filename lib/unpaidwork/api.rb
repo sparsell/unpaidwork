@@ -1,17 +1,8 @@
-<<<<<<< HEAD
-require 'httparty'
-require 'json'
-require 'pry'
-
-class API
-    
-=======
 
 class UnpaidWork::API
     
 
 
->>>>>>> 932cf7fe978db520c011f060e618bff8bf23a31c
     def self.get_country(id)
         url = "https://stats.oecd.org/SDMX-JSON/data/GENDER_EMP/#{id}.EMP15_U+EMP15_P+EMP15_T.MEN+WOMEN.1564.LATEST_YEAR/all?&dimensionAtObservation=allDimensions&pid=fc199662-1e91-402d-bd34-06fb2ee872ea"
         data = HTTParty.get(url)

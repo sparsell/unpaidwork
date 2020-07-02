@@ -34,7 +34,7 @@ module UnpaidWork
                 when "view"
                     print_country_names
                     choose_country
-                    display_country_data(id)
+                    #display_country_data(id)
                 when "read"
                     read
                 when "exit"
@@ -56,7 +56,7 @@ module UnpaidWork
             puts "Choose an OECD country by typing the corresponding three letter abbreviation:"
             id = gets.chomp
             UnpaidWork::API.get_country(id)
-            #UnpaidWork::Country.display_country_data(id)
+            UnpaidWork::Country.display_country_data(id)
         end
 
         # def display_country_data(id)

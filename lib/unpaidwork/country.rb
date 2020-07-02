@@ -42,7 +42,7 @@ module UnpaidWork
         #     puts "Unpaid work performed by:"
         #     puts "     Men: #{unpaid_men}"
         #     puts "     Women:#{unpaid_women}"
-        #     puts ""
+        #     puts ""   
         #     puts "Paid work performed by:"
         #     puts "     Men: #{paid_men}"
         #     puts "     Women:#{paid_women}"

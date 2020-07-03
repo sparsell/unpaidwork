@@ -32,5 +32,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'httparty'
   spec.add_development_dependency 'json'
+  # spec .add_development_dependency 'word_wrap/core_ext'
 
 end

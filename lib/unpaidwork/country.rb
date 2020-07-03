@@ -1,7 +1,8 @@
-
 module UnpaidWork
     class UnpaidWork::Country
+        
         attr_accessor :name, :unpaid_men, :unpaid_women, :paid_men, :paid_women, :total_men, :total_women
+        
         @@all = []
 
         def initialize
@@ -14,15 +15,7 @@ module UnpaidWork
             @total_men = total_men
             @total_women = total_women
             save
-        end
-
-        # def self.get_countries(country_names)
-        #     country_names = country_names.collect do |name| "#{name["name"]}"     
-	    #     end
-        #     country_names.each_with_index do |(key, value), index|
-	    #     puts "#{index +1}. #{key}"
-        #     end
-        # end     
+        end  
 
         def self.make_country(country_data)
             country_specific = country_data.collect do |key, value| value[0] end
@@ -35,11 +28,8 @@ module UnpaidWork
                 save
         end
 
-        def self.get_country_data(country_data) 
-        end
-
         def self.display_country_data(id)
-            puts "The OECD data for #{id}, represented in minutes per day, is as follows:"
+            puts "According to the OECD, in #{id}, time spent in paid and unpaid work by gender is as follows (represented in minutes per day,):"
             puts ""
             puts "Unpaid work performed by:"
             puts "     Men: #{@men_unpaid}"
@@ -52,6 +42,8 @@ module UnpaidWork
             puts "Total work performed by:"
             puts "     Men: #{@total_men}"
             puts "     Women:#{@total_women}"
+            puts ""
+            sleep (1)
         end
 
         def self.check_for_countries
@@ -64,18 +56,9 @@ module UnpaidWork
         end
 
         def self.save
-            @@all << self    
+            @@all << self 
+            @@all   
         end
 
     end
 end
-
-#### DO NOT USE - clear when done ####
-
-# def self.get_countries(country_names)
-#     country_names = country_names.collect do |name| "#{name["name"]}"     
-#     end
-#     country_names.each_with_index do |(key, value), index|
-#     puts "#{index +1}. #{key}"
-#     end
-# end

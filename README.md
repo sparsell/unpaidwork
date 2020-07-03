@@ -1,8 +1,10 @@
 # Unpaidwork
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/unpaidwork`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to 'UnpaidWork' a CLI application made in Ruby which allows the user to view country specific data regardign unpaid work performed by men vs. unpaid work performed by women.  
 
-TODO: Delete this and the text above, and describe your gem
+
+There is a 
+https://www.oecd.org/dev/development-gender/Unpaid_care_work.pdf
 
 ## Installation
 

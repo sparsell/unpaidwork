@@ -5,14 +5,20 @@ module UnpaidWork
         
         @@all = []
 
-        def initialize
-            make_country(country_data)
-            save
+        def initialize(id, country_data)
+            @id = id
+            # country_specific = country_data.collect do |key, value| value[0] end
+            #     @unpaid_men = country_specific[0]
+            #     @unpaid_women = country_specific[1]
+            #     @paid_men = country_specific[2]
+            #     @paid_women = country_specific[3]
+            #     @total_men = country_specific[4]
+            #     @total_women = country_specific[5]
+                @@all << self
         end  
 
         def self.make_country(id, country_data)
             country_specific = country_data.collect do |key, value| value[0] end
-                #@id = id
                 @unpaid_men = country_specific[0]
                 @unpaid_women = country_specific[1]
                 @paid_men = country_specific[2]
@@ -20,6 +26,14 @@ module UnpaidWork
                 @total_men = country_specific[4]
                 @total_women = country_specific[5]
                 save
+        end
+
+        def self.save
+            @@all << self 
+        end
+
+        def self.all
+            puts @@all
         end
 
         def self.display_country_data(id)
@@ -40,20 +54,22 @@ module UnpaidWork
             sleep (1)
         end
 
-        def self.check_for_countries
-            
-            UnpaidWork::API.get_country(id)
-        end   
-
-        def self.all
-            check_for_countries if @@all == []
-            @@all
-        end
-
-        def self.save
-            @@all << self 
-      
-        end
-
     end
 end
+
+
+ # def new_country_hash(id, country_data)
+
+                #     country_hash = {
+                #       @id: [id] => {
+                #         @name: ["Australia"],
+                #         @unpaid_men: [country_specific[0]], 
+                #         @unpaid_women: [country_specific[1]],
+                #         @paid_men: [country_specific[2]], 
+                #         @paid_women: [country_specific[3]],
+                #         @total_men: [country_specific[4]],
+                #         @total_women: [country_specific[5]]
+                #       }
+                #     }
+                  
+                #   end

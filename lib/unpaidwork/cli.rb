@@ -37,7 +37,6 @@ module UnpaidWork
                 when "VIEW"
                     print_country_names
                     choose_country
-                    see_all
                     intro_menu
                 when "LEARN"
                     learn_more
@@ -63,16 +62,14 @@ module UnpaidWork
             puts ""
             puts "Choose an OECD country by typing the corresponding three letter abbreviation:"
             id = gets.strip.upcase
-            #validation - if id is in country_names array,  --> use .detect...
+            #add validation - if id is in country_names array,  --> use .detect...
             UnpaidWork::API.get_country(id)
             UnpaidWork::Country.display_country_data(id)
         end
 
         def see_all
             puts UnpaidWork::Country.all
-
         end
-
 
         def learn_more
             puts "Here are some excellent books that help to give context to the data:"

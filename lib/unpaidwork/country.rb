@@ -5,7 +5,7 @@ module UnpaidWork
         
         @@all = []
 
-        def initialize(id, country_data)
+        def initialize(id, country_data) #id - from user in CLI; country_data - a hash from the API call. How can I make this better and create the country object from that hash??
             @id = id
             @unpaid_men = unpaid_men
             @unpaid_women = unpaid_women

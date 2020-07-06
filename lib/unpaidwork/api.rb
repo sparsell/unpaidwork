@@ -6,7 +6,8 @@ module UnpaidWork
             data = HTTParty.get(url)
             parsed_data = JSON.parse data
             country_data = parsed_data["dataSets"][0]["observations"]
-            UnpaidWork::Country.make_country(country_data)
+            #UnpaidWork::Country.new(id, country_data)
+            UnpaidWork::Country.make_country(id,country_data)
         end
 
     end

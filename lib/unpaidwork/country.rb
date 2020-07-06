@@ -1,7 +1,7 @@
 module UnpaidWork
     class UnpaidWork::Country
         
-        attr_accessor :name, :unpaid_men, :unpaid_women, :paid_men, :paid_women, :total_men, :total_women
+        attr_accessor :id, :unpaid_men, :unpaid_women, :paid_men, :paid_women, :total_men, :total_women
         
         @@all = []
 
@@ -15,30 +15,47 @@ module UnpaidWork
             @total_men = total_men
             @total_women = total_women
             save
+        def initialize(id, country_data)
+            @id = id
+            # country_specific = country_data.collect do |key, value| value[0] end
+            #     @unpaid_men = country_specific[0]
+            #     @unpaid_women = country_specific[1]
+            #     @paid_men = country_specific[2]
+            #     @paid_women = country_specific[3]
+            #     @total_men = country_specific[4]
+            #     @total_women = country_specific[5]
+                @@all << self
         end  
 
-        def self.make_country(country_data)
+        def self.make_country(id, country_data)
             country_specific = country_data.collect do |key, value| value[0] end
-                #@id = id
-                @men_unpaid = country_specific[0]
-                @women_unpaid = country_specific[1]
-                @men_paid = country_specific[2]
-                @women_paid = country_specific[3]
+                @unpaid_men = country_specific[0]
+                @unpaid_women = country_specific[1]
+                @paid_men = country_specific[2]
+                @paid_women = country_specific[3]
                 @total_men = country_specific[4]
                 @total_women = country_specific[5]
                 #initialize
+        end
+
+        def self.save
+            @@all << self 
+        end
+
+        def self.all
+            puts @@all
         end
 
         def self.display_country_data(id)
             puts "According to the OECD, in #{id}, time spent in paid and unpaid work by gender is as follows (represented in minutes per day,):"
             puts ""
             puts "Unpaid work performed by:"
-            puts "     Men: #{@men_unpaid}"
-            puts "     Women:#{@women_unpaid}"
+            puts "     Men: #{@unpaid_men}"
+            puts "     Women:#{@unpaid_women}"
             puts ""
             puts "Paid work performed by:"
-            puts "     Men: #{@men_paid}"
-            puts "     Women:#{@women_paid}"
+            puts "     Men: #{@paid_men}"
+            puts "     Women:#{@paid_women}"
             puts ""
             puts "Total work performed by:"
             puts "     Men: #{@total_men}"
@@ -47,6 +64,7 @@ module UnpaidWork
             sleep (1)
         end
 
+<<<<<<< HEAD
         def self.check_for_countries
             #UnpaidWork::API.get_country(id)
         end   
@@ -62,3 +80,24 @@ module UnpaidWork
 
     end
 end
+=======
+    end
+end
+
+
+ # def new_country_hash(id, country_data)
+
+                #     country_hash = {
+                #       @id: [id] => {
+                #         @name: ["Australia"],
+                #         @unpaid_men: [country_specific[0]], 
+                #         @unpaid_women: [country_specific[1]],
+                #         @paid_men: [country_specific[2]], 
+                #         @paid_women: [country_specific[3]],
+                #         @total_men: [country_specific[4]],
+                #         @total_women: [country_specific[5]]
+                #       }
+                #     }
+                  
+                #   end
+>>>>>>> e35c31f79e41db0b670186729b6c188220c897e7

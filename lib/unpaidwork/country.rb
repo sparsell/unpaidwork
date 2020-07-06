@@ -64,13 +64,12 @@ module UnpaidWork
             sleep (1)
         end
 
-<<<<<<< HEAD
         def self.check_for_countries
             #UnpaidWork::API.get_country(id)
         end   
 
         def self.save
-            @@all << self    
+            @@all < self    
         end
         
         def self.all
@@ -80,7 +79,6 @@ module UnpaidWork
 
     end
 end
-=======
     end
 end
 
@@ -100,4 +98,3 @@ end
                 #     }
                   
                 #   end
->>>>>>> e35c31f79e41db0b670186729b6c188220c897e7

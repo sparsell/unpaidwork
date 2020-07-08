@@ -5,17 +5,16 @@ module UnpaidWork
         
         @@all = []
 
-        def initialize(id, country_data)
+        def initialize(id, country_data) #id - from user in CLI; country_data - a hash from the API call. How can I make this better and create the country object from that hash??
             @id = id
-            # country_specific = country_data.collect do |key, value| value[0] end
-            #     @unpaid_men = country_specific[0]
-            #     @unpaid_women = country_specific[1]
-            #     @paid_men = country_specific[2]
-            #     @paid_women = country_specific[3]
-            #     @total_men = country_specific[4]
-            #     @total_women = country_specific[5]
-                @@all << self
-        end  
+            @unpaid_men = unpaid_men
+            @unpaid_women = unpaid_women
+            @paid_men = paid_men
+            @paid_women = paid_women
+            @total_men = total_men
+            @total_women = total_women
+            make_country(id, country_data)
+        end
 
         def self.make_country(id, country_data)
             @id = id
@@ -29,7 +28,7 @@ module UnpaidWork
                 save
         end
 
-        def self.save
+        def save
             @@all << self 
         end
 
@@ -54,23 +53,5 @@ module UnpaidWork
             puts ""
             sleep (1)
         end
-
     end
 end
-
-
- # def new_country_hash(id, country_data)
-
-                #     country_hash = {
-                #       @id: [id] => {
-                #         @name: ["Australia"],
-                #         @unpaid_men: [country_specific[0]], 
-                #         @unpaid_women: [country_specific[1]],
-                #         @paid_men: [country_specific[2]], 
-                #         @paid_women: [country_specific[3]],
-                #         @total_men: [country_specific[4]],
-                #         @total_women: [country_specific[5]]
-                #       }
-                #     }
-                  
-                #   end

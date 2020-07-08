@@ -11,10 +11,10 @@ module UnpaidWork
             
             #UnpaidWork::Country.make_country(id,country_data) 
 
-            #id => "USA"
-            #country_data =>
-            #=> {"0:0:0:0:0"=>[145.0, nil, 0, 0, nil],
-            #"0:0:1:0:0"=>[241.0, nil, 0, 0, nil],
+            # id => "USA"
+            # country_data =>
+            # => {"0:0:0:0:0"=>[145.0, nil, 0, 0, nil],
+            # "0:0:1:0:0"=>[241.0, nil, 0, 0, nil],
             #  "0:1:0:0:0"=>[320.1, nil, 0, 0, nil,    
             #  "0:1:1:0:0"=>[246.1, nil, 0, 0, nil],
             #  "0:2:0:0:0"=>[465.1, nil, 0, 0, nil],

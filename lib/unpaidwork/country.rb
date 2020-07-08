@@ -13,6 +13,7 @@ module UnpaidWork
             @paid_women = paid_women
             @total_men = total_men
             @total_women = total_women
+            save
             make_country(id, country_data)
         end
 
@@ -24,7 +25,6 @@ module UnpaidWork
                 @paid_women = country_specific[3]
                 @total_men = country_specific[4]
                 @total_women = country_specific[5]
-                save
         end
 
         def save

@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This CLI is not intended for official purposes. It is simply providing data that is found on the OECD website. A full view of the data representd in this CLI can be found here: https://stats.oecd.org/index.aspx?queryid=54757
 
 ## Development
 

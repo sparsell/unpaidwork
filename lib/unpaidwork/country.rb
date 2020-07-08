@@ -13,11 +13,10 @@ module UnpaidWork
             @paid_women = paid_women
             @total_men = total_men
             @total_women = total_women
-            make_country(id, country_data)
+            #make_country(id, country_data)
         end
 
         def self.make_country(id, country_data)
-            @id = id
             country_specific = country_data.collect do |key, value| value[0] end
                 @unpaid_men = country_specific[0]
                 @unpaid_women = country_specific[1]
@@ -28,7 +27,7 @@ module UnpaidWork
                 save
         end
 
-        def save
+        def self.save
             @@all << self 
         end
 

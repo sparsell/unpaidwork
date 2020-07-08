@@ -18,6 +18,7 @@ module UnpaidWork
         end  
 
         def self.make_country(id, country_data)
+            @id = id
             country_specific = country_data.collect do |key, value| value[0] end
                 @unpaid_men = country_specific[0]
                 @unpaid_women = country_specific[1]

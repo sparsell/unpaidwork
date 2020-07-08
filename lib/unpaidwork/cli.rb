@@ -68,7 +68,7 @@ module UnpaidWork
         end
 
         def see_all
-            puts UnpaidWork::Country.all
+            UnpaidWork::Country.all
         end
 
         def learn_more

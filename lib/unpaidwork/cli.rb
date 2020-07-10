@@ -57,21 +57,34 @@ module UnpaidWork
         end
 
         def print_country_names
-            country_names = ["AUS".colorize(:yellow) + " - Austria", "AUT".colorize(:yellow) + " - Austria", "BEL".colorize(:yellow) + " - Belgium", "CAN".colorize(:yellow) + " - Canada", "CHL".colorize(:yellow) + " - Chile", "DNK".colorize(:yellow) + " - Denmark", "EST".colorize(:yellow) + " - Estonia", "FIN".colorize(:yellow) + " - Finland", "FRA".colorize(:yellow) + " - France", "DEU".colorize(:yellow) + " - Germany", "GRC".colorize(:yellow) + " - Greece", "HUN".colorize(:yellow) + " - Hungary", "ISL".colorize(:yellow) + " - Iceland", "IRL".colorize(:yellow) + " - Ireland", "ISR".colorize(:yellow) + " - Israel", "ITA".colorize(:yellow) + " - Italy", "JPN".colorize(:yellow) + " - Japan", "KOR".colorize(:yellow) + " - Korea", "LVA".colorize(:yellow) + " - Latvia", "LTU".colorize(:yellow) + " - Lithuania", "LUX".colorize(:yellow) + " - Luxembourg", "MEX".colorize(:yellow) + " - Mexico", "NLD".colorize(:yellow) + " - Netherlands", "NZL".colorize(:yellow) + " - New Zealand", "NOR".colorize(:yellow) + " - Norway", "POL".colorize(:yellow) + " - Poland", "PRT".colorize(:yellow) + " - Portugal", "SVK".colorize(:yellow) + " - Slovak Republic", "SVN".colorize(:yellow) + " - Slovenia", "ESP".colorize(:yellow) + " - Spain", "SWE".colorize(:yellow) + " - Sweden", "TUR".colorize(:yellow) + " - Turkey", "GBR".colorize(:yellow) + " - United Kingdom", "USA".colorize(:yellow) + " - United States"]
+            country_names = ["AUS".colorize(:yellow) + " - Austria", "AUT".colorize(:yellow) + " - Austria", "BEL".colorize(:yellow) + " - Belgium", "CAN".colorize(:yellow) + " - Canada", "CHL".colorize(:yellow) + " - Chile", "DNK".colorize(:yellow) + " - Denmark", "EST".colorize(:yellow) + " - Estonia", "FIN".colorize(:yellow) + " - Finland", "FRA".colorize(:yellow) + " - France", "DEU".colorize(:yellow) + " - Germany", "GRC".colorize(:yellow) + " - Greece", "HUN".colorize(:yellow) + " - Hungary", "ISL".colorize(:yellow) + " - Iceland", "IRL".colorize(:yellow) + " - Ireland", "ISR".colorize(:yellow) + " - Israel", "ITA".colorize(:yellow) + " - Italy", "JPN".colorize(:yellow) + " - Japan", "KOR".colorize(:yellow) + " - Korea", "LVA".colorize(:yellow) + " - Latvia", "LTU".colorize(:yellow) + " - Lithuania", "LUX".colorize(:yellow) + " - Luxembourg", "MEX".colorize(:yellow) + " - Mexico", "NLD".colorize(:yellow) + " - Netherlands", "NZL".colorize(:yellow) + " - New Zealand", "NOR".colorize(:yellow) + " - Norway", "POL".colorize(:yellow) + " - Poland", "PRT".colorize(:yellow) + " - Portugal", + "SVN".colorize(:yellow) + " - Slovenia", "ESP".colorize(:yellow) + " - Spain", "SWE".colorize(:yellow) + " - Sweden", "TUR".colorize(:yellow) + " - Turkey", "GBR".colorize(:yellow) + " - United Kingdom", "USA".colorize(:yellow) + " - United States"]
             country_names.each { |name| puts name }
         end    
            
         def choose_country
             puts ""
             puts "Choose an OECD country by typing the corresponding three letter abbreviation:".colorize(:green)
-            id = gets.strip.upcase
-            UnpaidWork::API.get_country(id)
+            id = gets.chomp.upcase
+            validate_id(id)
+            #UnpaidWork::API.get_country(id)
             display_country_data(id)
+        end
+
+        def validate_id(id)
+            countries = ["AUS", "AUT", "BEL", "CAN", "CHL", "COL", "CZE", "DNK", "EST", "FIN", "FRA", "DEU", "GRC", "HUN", "ISL","IRL", "ISR", "ITA", "JPN", "KOR", "LVA", "LTU", "LUX", "MEX", "NLD", "NOR", "POL", "PRT", "SVN", "ESP", "SWE", "TUR", "GBR", "USA"]
+
+            if countries.include?(id) 
+            UnpaidWork::API.get_country(id)
+            else
+                puts ""
+                puts "Please choose a correct abbreviation for the country you wish to view.".colorize(:red)
+                choose_country
+            end
         end
 
         def display_country_data(id)
             UnpaidWork::Country.all.select do |id| 
-            puts "According to the OECD, in #{id}, time spent in paid and unpaid work by gender is as follows (represented in minutes per day,):"
+            puts "According to the OECD, in #{id.id}, time spent in paid and unpaid work by gender is as follows (represented in minutes per day,):"
             puts ""
             puts "Unpaid work performed by:".colorize(:green)
             puts "     Men: #{id.unpaid_men}"
@@ -89,7 +102,7 @@ module UnpaidWork
         end
 
         def see_all
-            puts Country.all
+            puts Country.all 
         end
 
         def learn_more
@@ -103,16 +116,8 @@ module UnpaidWork
         end
      
         def exit
-            puts "Goodbye!"
+            puts "Thanks for visiting. Now, go get to work!".colorize(:yellow)
+            puts ''
         end
     end
 end        
-    
-
- #find country object by id, match it, pass object to display #country_data
-
-            #find_by_id(id)
-
-             # def find_by_id(id)
-        #     UnpaidWork::Country.all.find {|id| id.id == id}
-        # end

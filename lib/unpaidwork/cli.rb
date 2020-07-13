@@ -12,19 +12,23 @@ module UnpaidWork
 
         def intro
             puts ""
-            puts "Welcome to 'Unpaid Work'.".colorize(:yellow)
+            puts "-------------------------------".colorize(:green)
+            puts "    Welcome to 'Unpaid Work'".colorize(:yellow)
+            puts "-------------------------------".colorize(:green)
             puts ""
-            puts "  The OECD collects and publishes data around gender roles" 
-            puts "  (along with several other topics)." 
+            puts "  The OECD collects and publishes data around gender " 
+            puts "  roles (along with many, many other topics)." 
             puts ""
             puts "  The data in this application shows the amount of unpaid and paid work performed by"
-            puts "  males and females, in minutes per day. "
+            puts "  men and women, in minutes per day. "
             puts ""
         end
 
         def intro_menu
             puts ""
-            puts "What would you like to do?".colorize(:green)
+            puts "-------------------------------".colorize(:green)
+            puts "What would you like to do?".colorize(:yellow)
+            puts "-------------------------------".colorize(:green)
             puts ""
             puts "'View'".colorize(:light_blue) + " - see data by OECD country"
             puts "'Learn'".colorize(:light_blue) + " - view a list of resources/further reading recommendations"
@@ -57,13 +61,14 @@ module UnpaidWork
         end
 
         def print_country_names
-            country_names = ["AUS".colorize(:yellow) + " - Austria", "AUT".colorize(:yellow) + " - Austria", "BEL".colorize(:yellow) + " - Belgium", "CAN".colorize(:yellow) + " - Canada", "CHL".colorize(:yellow) + " - Chile", "DNK".colorize(:yellow) + " - Denmark", "EST".colorize(:yellow) + " - Estonia", "FIN".colorize(:yellow) + " - Finland", "FRA".colorize(:yellow) + " - France", "DEU".colorize(:yellow) + " - Germany", "GRC".colorize(:yellow) + " - Greece", "HUN".colorize(:yellow) + " - Hungary", "ISL".colorize(:yellow) + " - Iceland", "IRL".colorize(:yellow) + " - Ireland", "ISR".colorize(:yellow) + " - Israel", "ITA".colorize(:yellow) + " - Italy", "JPN".colorize(:yellow) + " - Japan", "KOR".colorize(:yellow) + " - Korea", "LVA".colorize(:yellow) + " - Latvia", "LTU".colorize(:yellow) + " - Lithuania", "LUX".colorize(:yellow) + " - Luxembourg", "MEX".colorize(:yellow) + " - Mexico", "NLD".colorize(:yellow) + " - Netherlands", "NZL".colorize(:yellow) + " - New Zealand", "NOR".colorize(:yellow) + " - Norway", "POL".colorize(:yellow) + " - Poland", "PRT".colorize(:yellow) + " - Portugal", + "SVN".colorize(:yellow) + " - Slovenia", "ESP".colorize(:yellow) + " - Spain", "SWE".colorize(:yellow) + " - Sweden", "TUR".colorize(:yellow) + " - Turkey", "GBR".colorize(:yellow) + " - United Kingdom", "USA".colorize(:yellow) + " - United States"]
+            country_names = ["AUS".colorize(:yellow) + " - Austria", "AUT".colorize(:yellow) + " - Austria", "BEL".colorize(:yellow) + " - Belgium", "CAN".colorize(:yellow) + " - Canada", "DNK".colorize(:yellow) + " - Denmark", "EST".colorize(:yellow) + " - Estonia", "FIN".colorize(:yellow) + " - Finland", "FRA".colorize(:yellow) + " - France", "DEU".colorize(:yellow) + " - Germany", "GRC".colorize(:yellow) + " - Greece", "HUN".colorize(:yellow) + " - Hungary", "IRL".colorize(:yellow) + " - Ireland", "ITA".colorize(:yellow) + " - Italy", "JPN".colorize(:yellow) + " - Japan", "KOR".colorize(:yellow) + " - Korea", "LVA".colorize(:yellow) + " - Latvia", "LTU".colorize(:yellow) + " - Lithuania", "LUX".colorize(:yellow) + " - Luxembourg", "MEX".colorize(:yellow) + " - Mexico", "NLD".colorize(:yellow) + " - Netherlands", "NOR".colorize(:yellow) + " - Norway", "POL".colorize(:yellow) + " - Poland", "PRT".colorize(:yellow) + " - Portugal", + "SVN".colorize(:yellow) + " - Slovenia", "ESP".colorize(:yellow) + " - Spain", "SWE".colorize(:yellow) + " - Sweden", "TUR".colorize(:yellow) + " - Turkey", "GBR".colorize(:yellow) + " - United Kingdom", "USA".colorize(:yellow) + " - United States"]
             country_names.each { |name| puts name }
         end    
            
         def choose_country
             puts ""
             puts "Choose an OECD country by typing the corresponding three letter abbreviation:".colorize(:green)
+            puts "-------------------------------".colorize(:yellow)
             id = gets.chomp.upcase
             validate_id(id)
             #UnpaidWork::API.get_country(id)
@@ -71,7 +76,7 @@ module UnpaidWork
         end
 
         def validate_id(id)
-            countries = ["AUS", "AUT", "BEL", "CAN", "CHL", "COL", "CZE", "DNK", "EST", "FIN", "FRA", "DEU", "GRC", "HUN", "ISL","IRL", "ISR", "ITA", "JPN", "KOR", "LVA", "LTU", "LUX", "MEX", "NLD", "NOR", "POL", "PRT", "SVN", "ESP", "SWE", "TUR", "GBR", "USA"]
+            countries = ["AUS", "AUT", "BEL", "CAN", "COL", "CZE", "DNK", "EST", "FIN", "FRA", "DEU", "GRC", "HUN", "IRL", "ITA", "JPN", "KOR", "LVA", "LTU", "LUX", "MEX", "NLD", "NOR", "POL", "PRT", "SVN", "ESP", "SWE", "TUR", "GBR", "USA"]
 
             if countries.include?(id) 
             UnpaidWork::API.get_country(id)
@@ -84,7 +89,8 @@ module UnpaidWork
 
         def display_country_data(id)
             UnpaidWork::Country.all.select do |id| 
-            puts "According to the OECD, in #{id.id}, time spent in paid and unpaid work by gender is as follows (represented in minutes per day,):"
+            puts "According to the OECD, in #{id.id}, time spent in paid and unpaid work by gender "
+            puts "is as follows (represented in minutes per day,):"
             puts ""
             puts "Unpaid work performed by:".colorize(:green)
             puts "     Men: #{id.unpaid_men}"

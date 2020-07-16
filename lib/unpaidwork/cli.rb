@@ -26,9 +26,9 @@ module UnpaidWork
 
         def intro_menu
             puts ""
-            puts "-------------------------------".colorize(:green)
+            puts "---------------------------".colorize(:green)
             puts "What would you like to do?".colorize(:yellow)
-            puts "-------------------------------".colorize(:green)
+            puts "---------------------------".colorize(:green)
             puts ""
             puts "'View'".colorize(:light_blue) + " - see data by OECD country"
             puts "'Learn'".colorize(:light_blue) + " - view a list of resources/further reading recommendations"
@@ -68,7 +68,7 @@ module UnpaidWork
         def choose_country
             puts ""
             puts "Choose an OECD country by typing the corresponding three letter abbreviation:".colorize(:green)
-            puts "-------------------------------".colorize(:yellow)
+            puts "-----------------------------------------------------------------------------".colorize(:yellow)
             id = gets.chomp.upcase
             validate_id(id)
             #UnpaidWork::API.get_country(id)
@@ -122,7 +122,10 @@ module UnpaidWork
         end
      
         def exit
+            puts ""
+            puts "-----------------------------------------".colorize(:green)
             puts "Thanks for visiting. Now, go get to work!".colorize(:yellow)
+            puts "-----------------------------------------".colorize(:green)
             puts ''
         end
     end

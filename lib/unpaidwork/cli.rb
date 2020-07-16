@@ -71,7 +71,6 @@ module UnpaidWork
             puts "-----------------------------------------------------------------------------".colorize(:yellow)
             id = gets.chomp.upcase
             validate_id(id)
-            #UnpaidWork::API.get_country(id)
             display_country_data(id)
         end
 

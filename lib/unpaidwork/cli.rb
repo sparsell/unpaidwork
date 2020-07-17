@@ -48,9 +48,9 @@ module UnpaidWork
                 when "LEARN"
                     learn_more
                     intro_menu 
-                when "MORE"  
-                    see_all
-                    intro_menu
+                # when "MORE"  
+                #     see_all
+                #     intro_menu
                 when "EXIT"
                     exit
                     break
@@ -106,9 +106,9 @@ module UnpaidWork
             end
         end
 
-        def see_all
-            puts Country.all 
-        end
+        # def see_all
+        #     puts Country.all 
+        # end
 
         def learn_more
             puts "Here are some excellent books that help to give context to the data:".colorize(:yellow)

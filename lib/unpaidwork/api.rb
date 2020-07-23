@@ -11,6 +11,3 @@ module UnpaidWork
         end
     end
 end
-
-
-    

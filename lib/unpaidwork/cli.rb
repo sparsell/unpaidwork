@@ -83,7 +83,7 @@ module UnpaidWork
         end
 
         def display_country_data(id)
-            UnpaidWork::Country.all.select do |id| 
+            id = UnpaidWork::Country.all.find {|country| country.id == id}
             puts "According to the OECD, in #{id.id}, time spent in paid and unpaid work by gender "
             puts "is as follows (represented in minutes per day,):"
             puts ""
@@ -99,7 +99,6 @@ module UnpaidWork
             puts "     Men: #{id.total_men}"
             puts "     Women:#{id.total_women}"
             puts ""
-            end
         end
 
         def learn_more

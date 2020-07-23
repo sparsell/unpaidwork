@@ -19,7 +19,7 @@ module UnpaidWork
             puts "  The OECD collects and publishes data around gender " 
             puts "  roles (along with many, many other topics)." 
             puts ""
-            puts "  The data in this application shows the amount of unpaid and paid work performed by"
+            puts "  The OECD data in this application shows the amount of unpaid and paid work, performed by"
             puts "  men and women, in minutes per day. "
             puts ""
         end
@@ -32,7 +32,7 @@ module UnpaidWork
             puts ""
             puts "'View'".colorize(:light_blue) + " - see data by OECD country"
             puts "'Learn'".colorize(:light_blue) + " - view a list of resources/further reading recommendations"
-            puts "'More'".colorize(:light_blue) + " - to see all objects"
+            #puts "'More'".colorize(:light_blue) + " - to see all objects"
             puts "'Exit'".colorize(:light_blue) + " - leave the program"
         end
 
@@ -71,6 +71,7 @@ module UnpaidWork
             puts "-----------------------------------------------------------------------------".colorize(:yellow)
             id = gets.chomp.upcase
             validate_id(id)
+            #UnpaidWork::API.get_country(id)
             display_country_data(id)
         end
 
@@ -106,9 +107,9 @@ module UnpaidWork
             end
         end
 
-        # def see_all
-        #     puts Country.all 
-        # end
+        def see_all
+            puts Country.all
+        end
 
         def learn_more
             puts "Here are some excellent books that help to give context to the data:".colorize(:yellow)

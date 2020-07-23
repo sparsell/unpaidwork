@@ -103,12 +103,18 @@ module UnpaidWork
         end
 
         def learn_more
-            puts "Here are some excellent books that help to give context to the data:".colorize(:yellow)
+            puts "Here are some excellent books and other resources which help to give context to the data:".colorize(:yellow)
             puts ""
             puts "1. 'Invisible Women: Data Bias in a World Designed for Men' by Caroline Criado-Perez"
+            puts ""
             puts "2. 'Drop the Ball' by Tiffany Dufu"
+            puts ""
             puts "3. Visit 'https://www.oecd.org/dev/development-gender/Unpaid_care_work.pdf' to learn more about the OECD research"
-            puts "4. Read and watch 'https://www.cnbc.com/2018/04/10/heres-what-women-could-earn-if-household-chores-were-compensated.html#:~:text=According%20to%20the%20Organisation%20for,a%20week%20%E2%80%94%20doing%20unpaid%20labor.&text=The%20Bureau%20of%20Labor%20Statistics,average%20of%20%2426.82%20an%20hour.'"
+            puts ""
+            puts "4. Read and watch 'https://www.cnbc.com/2018/04/10/heres-what-women-could-earn-if-household-chores-were-compensated.
+            html#:~:text=According%20to%20the%20Organisation%20for,
+            a%20week%20%E2%80%94%20doing%20unpaid%20labor.&text=The%20Bureau%20of%20Labor%20Statistics,
+            average%20of%20%2426.82%20an%20hour.'"
             puts ""
         end
      
